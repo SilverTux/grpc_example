@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+enum Action {
+    TEST = 0;
+    TEST_2 = 1;
+}

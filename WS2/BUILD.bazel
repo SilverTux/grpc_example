@@ -1,0 +1,6 @@
+py_binary(
+    name = "test_ws2",
+    srcs = ["test_ws2.py"],
+    deps = ["@proto_targets//:test_grpc"],
+    visibility = ["//visibility:public"],
+)

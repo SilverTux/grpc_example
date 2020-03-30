@@ -1,0 +1,31 @@
+proto_library(
+    name = "protos",
+    srcs = [
+        "a.proto",
+        "b.proto",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_proto_library", "py_grpc_library")
+
+py_proto_library(
+    name = "test_grpc",
+    deps = [
+        ":protos",
+    ],
+    out_path = "external/proto_targets",
+    visibility = ["//visibility:public"],
+)
+
+py_grpc_library(
+    name = "test_grpc_grpc",
+    srcs = [
+        ":protos",
+    ],
+    deps = [
+        ":test_grpc",
+    ],
+    out_path = "external/proto_targets",
+    visibility = ["//visibility:public"],
+)
